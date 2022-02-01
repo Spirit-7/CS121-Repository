@@ -62,7 +62,7 @@ public class MyAvatar extends JPanel
 		//       This lets you change the color of "bob's" shirt. :)  ~ DONE
 		raul.setTorsoColor(coolPurple);
 		// TODO: 5. Invoke the draw() method on your MiniFig instance. This is where "bob" is displayed on the screen.  ~ DONE
-		//raul.draw(); test1 yo did you get this?
+		//raul.draw(); test1 yo did you get this? yeah wbu
 		// TODO: 6. Adjust the size of your Avatar's window. Notice how the avatar does not stay grounded
 		//       on the grass. To fix this, use the getBaseMidPoint() method to find the the base mid point of your
 		//       MiniFig. This method returns a Point object that represents the x,y coordinates at the
