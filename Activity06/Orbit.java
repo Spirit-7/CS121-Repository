@@ -14,7 +14,7 @@ import javax.swing.JPanel;
  * Animates and object orbiting around the Earth.
  *
  * @author CS121 Instructors
- * @author <you>
+ * @author Joey Weston
  */
 @SuppressWarnings("serial")
 public class Orbit extends JPanel
@@ -24,6 +24,7 @@ public class Orbit extends JPanel
 	private final int DELAY = 100; //milliseconds
 	
 	private final ImageIcon EARTH_ICON = new ImageIcon("earth.png");
+	private final ImageIcon OBJECT_ICON = new ImageIcon("Cat.png");
 	
 	private int orbitTheta;
 	private int orbitTDelta;
@@ -41,7 +42,7 @@ public class Orbit extends JPanel
 		orbitTheta = 0;
 		
 		// TODO: Generate random theta delta value from -10 to 20.
-		orbitTDelta = 10;
+		orbitTDelta = 1;
 	}
 
 	/**
@@ -61,29 +62,33 @@ public class Orbit extends JPanel
 		// HINT: If you end up with a solid circle of objects surrounding your earth instead of a 
 		// single object smoothly circling it, try drawing (below) a filled rectangle to blank the 
 		// window each time paintComponent() is called.
-		
+		page.setColor(Color.WHITE);
+		page.fillRect(0, 0, width, height);
 		// Draw earth
 		page.drawImage(EARTH_ICON.getImage(), earthX - earthRadius, earthY - earthRadius, 
 				    earthRadius * 2, earthRadius * 2, null);
 		
 		// TODO: Define orbit radius
 		// HINT: What is the difference between radius and diameter?
-
+		int orbitRadius = Math.min(width / 3, height / 3);
 		
 		// TODO: Draw orbit path
-
+		page.drawOval(earthX - orbitRadius, earthY - orbitRadius, orbitRadius * 2, orbitRadius * 2);
 		
 		// TODO: Define the radius of your object
-
+		int objectRadius = earthRadius / 5;
 		
 		// TODO: Calculate x and y using Math.sin and Math.cos.
 		// HINT: The Math.sin and Math.cos methods use radians for the parameter units. orbitTheta is in degrees.  
 		//       Try using the Math.toRadians() method to convert orbitTheta from degrees to radians. This will 
 		//       smooth out the orbit of your object.
-
+		int objectX = (int) (earthX + orbitRadius * Math.cos(Math.toRadians(orbitTheta)));
+		int objectY = (int) (earthY - orbitRadius * Math.sin(Math.toRadians(orbitTheta)));
 		
 		// TODO: Create a random color and draw your object as an oval with that random color.
-		
+		//Color randomColor = new Color((int) (Math.random() * 255), (int) (Math.random() * 255), (int) (Math.random() * 255));
+		//page.setColor(randomColor);
+		page.drawImage(OBJECT_ICON.getImage(), objectX - objectRadius, objectY - objectRadius, objectRadius * 2, objectRadius * 2, null);
 		// Add to theta (for animation)
 		orbitTheta = orbitTheta + orbitTDelta;
 		
