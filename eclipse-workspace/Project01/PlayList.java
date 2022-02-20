@@ -42,7 +42,7 @@ public class PlayList
 		
 		// SONG 2
 		// Prompts the user for song2 information
-		System.out.println("Enter the following information for your SECOND song:");
+		System.out.println("\nEnter the following information for your SECOND song:");
 				
 		System.out.print("Song Title: ");
 		title = scan.nextLine();
@@ -69,7 +69,7 @@ public class PlayList
 		
 		// SONG 3
 		// Prompts the user for song3 information
-		System.out.println("Enter the following information for your THIRD song:");
+		System.out.println("\nEnter the following information for your THIRD song:");
 				
 		System.out.print("Song Title: ");
 		title = scan.nextLine();
@@ -96,7 +96,7 @@ public class PlayList
 		// Calculate Average Play Time
 		double playTimeAvg = (song1.getPlayTime() + song2.getPlayTime() + song3.getPlayTime()) / 3.00;
 		DecimalFormat decimalFormat = new DecimalFormat("####.00");
-		System.out.println("Average Play Time: " + decimalFormat.format(playTimeAvg));
+		System.out.println("\nAverage Play Time: " + decimalFormat.format(playTimeAvg));
 		
 		
 		// Find Song With Play Time Closest to 4 Minutes
