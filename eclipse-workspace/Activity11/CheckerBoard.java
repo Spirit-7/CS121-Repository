@@ -6,10 +6,10 @@ import javax.swing.JPanel;
 
 /**
  * Lesson 11: Activity - for Loops
- * 
+ * Uses nested for loops to draw a checkerboard
  * @author CS121 Instructors
- * @version [semester] 
- * @author [your name]  
+ * @version Spring 2022 
+ * @author Joey Weston  
  */
 @SuppressWarnings("serial")
 public class CheckerBoard extends JPanel
@@ -36,9 +36,27 @@ public class CheckerBoard extends JPanel
 
 		int boxWidth = (int) Math.ceil((double) width/NUM_COLS);
 		int boxHeight = (int) Math.ceil((double) height/NUM_ROWS);
-
-		page.setColor(Color.RED);
-		page.fillRect(0, 0, boxWidth, boxHeight);
+		
+		int currentRow;
+		int currentCol;
+		int numBox = 1;
+		for (currentRow = 0; currentRow < NUM_ROWS; ++currentRow)
+		{
+			for (currentCol = 0; currentCol < NUM_COLS; ++currentCol)
+			{
+				if ((numBox % 2) == 1)
+				{
+					page.setColor(Color.RED);
+				}
+				else
+				{
+					page.setColor(Color.BLACK);
+				}
+				page.fillRect(boxWidth * currentCol, boxHeight * currentRow, boxWidth, boxHeight);
+				++numBox;
+			}
+			++numBox;
+		}
 	}
 
 	/**
